@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <vector>
 using namespace std;
 int partitionLogic(vector<int> &nums, int s, int e)
@@ -37,6 +36,8 @@ int partitionLogic(vector<int> &nums, int s, int e)
         // here two cases can be happen like loop for i/j will break if if nums[i]> nums[pivotindex] || nums[pivotIndex] > nums[j];
         // if above mentioned condition is triggered then below swap function will be invoked;
         swap(nums[i], nums[j]);
+        i++;
+        j--;
     }
 
     return pivotIndex;
@@ -60,7 +61,7 @@ void quickSort(vector<int> &nums, int s, int e)
 }
 int main()
 {
-    vector<int> nums = {6, 1, 20, 30, 8, 5, 60, 5};
+    vector<int> nums = {6, 0, 20, 30, 8, 5, 60, 5};
     int n = 8;
     int s = 0;
     int end = n - 1;
@@ -71,7 +72,7 @@ int main()
     }
     cout << endl;
     quickSort(nums, s, end);
-    cout<<" wwww"<<endl;
+    cout<<"Printing after quick sort called :" <<endl;
     for (int i = 0; i < n; i++)
     {
         cout << nums[i] << " ";
